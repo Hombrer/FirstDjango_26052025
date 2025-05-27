@@ -20,11 +20,11 @@ items = [
 
 
 def home(request):
-    text = """
-    <h1>"Изучаем django"</h1>
-    <strong>Автор</strong>: <i>Иванов И.П.</i>
-    """
-    return HttpResponse(text)
+    context = {
+        "name": "Петров Иван Николаевич",
+        "email": "my_mail@mail.ru",
+    }
+    return render(request, "index.html", context)
 
 
 def about(request):
@@ -34,11 +34,6 @@ def about(request):
     return HttpResponse(text)
 
 
-# /item/1
-# /item/2
-# ...
-# /item/n-1
-# /item/n
 def get_item(request, item_id: int):
     """По указанному id возращает элемент из списка."""
     for item in items:
