@@ -2,13 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
 
 # Create your views here.
-author = {
-    "Имя": "Иван",
-    "Отчество": "Петрович",
-    "Фамилия": "Иванов",
-    "телефон": "8-923-600-01-02",
-    "email": "vasya@mail.ru",
-}
+
 
 items = [
    {"id": 1, "name": "Кроссовки abibas" ,"quantity":5},
@@ -28,10 +22,17 @@ def home(request):
 
 
 def about(request):
-    text = ""
-    for key, value in author.items():
-        text += f'{key}: <b>{value}</b><br>'
-    return HttpResponse(text)
+    author = {
+        "name": "Иван",
+        "middle_name": "Петрович",
+        "last_name": "Иванов",
+        "phone": "8-923-600-01-02",
+        "email": "vasya@mail.ru",
+    }
+    context = {
+        "author": author
+    }
+    return render(request, "about.html", context)
 
 
 def get_item(request, item_id: int):
