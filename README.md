@@ -14,7 +14,11 @@ source django_venv/bin/activate
 ```
 python -m pip install -r requirements.txt
 ```
-4. Запустить сервер
+4. Применить миграции (и загрузить данные в БД)
+```
+python manage.py migrate
+```
+5. Запустить сервер
 ```
 python manage.py runserver
 ```
