@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Items list</title>
+    <title>Errors page</title>
 </head>
 <body>
     <nav>
         / <a href="/">Home</a> / <a href="/about">About</a> / <a href="/items">Items</a>
     </nav>
+    <br>
     <hr>
-    <h1> Список товаров </h1>
-
-    <ol>
-        {% for item in items %}
-            <li> <a href="/item/{{ item.id }}"> {{ item.name }} </a></li>
+    <ul>
+        {% for error in errors %}
+            <li>{{ error }}</li>
         {% endfor %}
-    </ol>
-
+    </ul>
 </body>
 </html>
