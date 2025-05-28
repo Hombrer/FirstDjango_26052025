@@ -40,7 +40,11 @@ def get_item(request, item_id: int):
     except ObjectDoesNotExist:
         return render(request, "errors.html", {"errors": [f'Item with id={item_id} not found.']}, status=404)
     else:
-        context = {"item": item}
+        colors = item.colors.all()
+        context = {
+            "item": item,
+            "colors": colors,
+            }
         return render(request, "item_page.html", context)
     
 
