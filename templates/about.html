@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Author page</title>
-</head>
-<body>
-    <nav>
-        / <a href="/">Home</a> / <a href="/about">About</a> / <a href="/items">Items</a>
-    </nav>
-    <hr>
+{% extends "base.html" %}
+
+{% block title %}
+    Author page
+{% endblock  %}
+
+{% block content %}
+
     <h1>Страница автора</h1>
     {# Пример комментария #}
     Имя: {{ author.name }} <br>
@@ -18,5 +14,4 @@
     телефон: {{ author.phone }} <br>
     email: {{ author.email }} <br>
 
-</body>
-</html>
+{% endblock  %}
